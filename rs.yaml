@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: rs-service
+  labels:
+   app: rs-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rs-service-pod
+  template:
+    metadata:
+      labels:
+        app: rs-service-pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+ 
